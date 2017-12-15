@@ -1,0 +1,109 @@
+modal-window[opened=true] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 1s;
+}
+
+modal-window[opened=false] {
+    display: none;
+}
+
+modal-window [slot="header"] {
+    margin: 0;
+    display: block;
+    font-family: 'Rubik', sans-serif, 'Roboto', sans-serif;
+    max-height: 70%;
+    width: 40%;
+    max-width: 600px;
+    padding: 0;
+    color: white;
+    border: 1px solid rgba(65, 115, 132, 0.5);
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(65, 115, 132, 0.7);
+    padding: 2px 16px;
+}
+
+modal-window [slot="body"] {
+    margin: 0;
+    display: block;
+    font-family: 'Rubik', sans-serif, 'Roboto', sans-serif;
+    max-height: 0;
+    width: 40%;
+    max-width: 600px;
+    padding: 8px 0;
+    color: white;
+    border: 1px solid rgba(65, 115, 132, 0.5);
+    border-radius: 0 0 10px 10px;
+    background-color: #417384;
+    padding: 2px 16px;
+    transition: max-height 0.7s;
+    overflow: hidden;
+}
+
+modal-window [slot="body"].active {
+    max-height: 70%;
+    transition: max-height 2s;
+    overflow: auto;
+}
+
+modal-window header {
+    display: block;
+}
+
+.modal-closer {
+    float: right;
+}
+
+.example-field {
+    margin-top: 10px;
+    width: 75%;
+    max-width: 1000px;
+}
+
+.example-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+modal-window > p > button {
+    margin-top: 10px;
+}
+
+.centrated {
+    text-align: center;
+}
+
+@media screen and (max-device-width: 660px) {
+    modal-window [slot="header"] {
+        max-width: 95%;
+        width: 95%;
+    }
+
+    modal-window [slot="body"] {
+        max-width: 95%;
+        width: 95%;
+    }
+}
+
+@media screen and (max-device-width: 960px) and (min-device-width: 661px){
+    modal-window [slot="header"] {
+        width: 70%;
+    }
+
+    modal-window [slot="body"] {
+        max-height: 90%;
+        width: 70%;
+    }
+}
